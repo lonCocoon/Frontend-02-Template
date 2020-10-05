@@ -1,7 +1,7 @@
 <!--
  * @Author: cocoon
  * @Date: 2020-10-01 13:28:01
- * @LastEditTime: 2020-10-05 16:35:22
+ * @LastEditTime: 2020-10-06 00:40:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Frontend-02-Template/week02/NOTE.md
@@ -192,7 +192,9 @@ MultiplicativeExpression
   - 命令型语言： 会告诉你达成这个结果每个步骤会是怎么样的
   C++、C、Java、C#、Python、Ruby、Perl、T-SQL、JavaScript
 
-#### 3. 图灵完备性
+### 录播 | 五、 JS语言通识 | 编程语言的性质
+
+#### 1. 图灵完备性
 
 所有编程语言必备的一个条件就是图灵完备性，最早其由图灵在研究数学上面的可计算性的时候提出的概念。图灵完备性有几个不同的表达方式。比如跟图灵机完全等效的就是图灵完备。更直观表述就是，所有的可计算的问题，都可用来描述的这样的语言就是具备图灵完备性的。  
 
@@ -205,7 +207,7 @@ MultiplicativeExpression
 - 声明式——lambda
   - 递归
 
-#### 4. 动态与静态
+#### 2. 动态与静态
 
 - 动态：它一定是在用户的设备或者是在线的服务器上面运行的，它运行的时机就是在产品实际的应用运行时。Runtime就是运行时
   - 在用户的设备/在线服务器上
@@ -217,7 +219,7 @@ MultiplicativeExpression
   - 产品开发时
   - Compiletime
 
-#### 5. 类型系统
+#### 3. 类型系统
 
 - 动态类型系统与静态类型系统
   - 动态类型：即可以在用户的机器或内存里面能够找到的类型
@@ -267,7 +269,9 @@ MultiplicativeExpression
 
 >所以说泛型与不同的类型系统相结合，就会形成一个非常复杂的一个类型的机制。其实在类型论里面，类型推导和像逆变、协变加上子类型、复合类型这些的结构上面一直是有一些未解的难题的。
 
-#### 6. 一般命令式编程语言
+### 录播 | 六、 JS语言通识 | 一般命令式编程语言
+
+#### 1. 一般命令式编程语言
 
 - Atom
   - Identifier
@@ -306,7 +310,7 @@ MultiplicativeExpression
 
 更上一层级通常是用来组织代码的。有的语言有，有的不再语言里面在一些辅助性的设施里面。Program、Module、Package、Library这些概念能够帮助我们去更好地管理语言地模块和安装。在JavaScript里面我们现在通常做这一个角色的是npm。JavaScript本身也有两个最顶级的定义。一个叫Program，一个叫Module。Module就是准备好被复用的模块，Program就是实际执行的代码。两者之间在JavaScript里面做了严格的区分，也有一些语言里根本就不区分这两个。
 
-#### 7. 重学Javascript
+#### 2. 重学Javascript
 
 ```mermaid
 graph LR
@@ -314,6 +318,193 @@ A[语法] -->   |语义| B[运行时]
 ```
 
 >我们对每个层级的讲解方式都会有一个比较固定的结构。对于每个层级来说我们都是以语法作为线索，但是除了语法，我们重点讲的是语义和运行时。我们通过某一些语法一定的语义，最后改变了运行时的状态。
+
+### 录播 | 七、 JS类型 | Number
+
+JavaScript最小的结构是什么呢。下面会从JavaScript最小的单位字面值和运行时的类型开始
+
+#### 1. Atom
+
+- Grammar 底层语法元素
+  - Literal
+  - Variable
+  - Keywords
+  - Whitespace
+  - Line Terminator
+
+以上都是组成JavaScript语言的最小元素。这是通过我们的字面值，比如说我们表示一个数字类型的字面值然后再配合我们的变量，配合我们的一些if else 关键字和一些符号，另外我们还有空白符/换行符，它们虽然不会产生实际的语言作用，但它们可以让整个语言的格式更好看。
+
+- Runtime 运行时
+  - Types
+  - Execution Context
+
+而这些东西实际最终反映到运行时，字面值的重点在它的类型。有五六种字面值的写法，对应到了JavaScript的7种类型中的几种。另外我们的变量实际上是对应到运行时的Execution Context里面的一些存储的变化。最终这些语法的变化都会造成一个运行时的改变。怎么改变的就是语义部分。
+
+#### 2. Types
+
+1. Number
+2. String
+3. Boolean
+4. Object
+5. Null：代表有值但是为空
+6. Undefined：根本没有定义过它的值
+7. Symbol
+
+对undefined这个值，一般只会检查是否有undefined这个值，JavaScript客观上允许进行给undefined赋值，但是建议进行过赋值的都尽量用null。Symbol是JavaScript新加上的基本类型。Symbol一定程度上代替了String的作用，可以用于Object里面的索引。Symbol和String最大的区别在于所有的String在对象的属性里都能取出来。而有的Symbol会出现无法取出的现象。Symbol是JavaScript特有的一个概念，它是专门用于Object的属性名的这样的一种特殊的基本类型。
+所以可以认为真正在编程里会比较常用到的基本类型只有5种——
+Number、String、Boolean、Object、Null
+值得一提的是，null在早期JavaScript设计时出现了一点偏差，所以它的typeOf的值最后会出来一个Object
+
+#### 3. Number
+
+- IEEE 754 Double Float
+- Sign（1）
+- Exponent（11）
+- Fraction（52）
+
+准确来说JavaScript里的Number对应到我们概念里面的有限位数的一个小数。再次也是对应到一个有理数。Number不会用来表示无理数，有理数其实它也表示不了。它的位数有限，不过也足够多。
+Number按照它的定义，它叫 Double Float，双精度浮点类型。
+要理解IEEE 754 定义里的Float的标准才能真正理解JavaScript里的Number。Float表示为浮点数，它的小数点是可以来回浮动的。它的基本思想是我们把一个数字拆成它的指数和有效位数。数的指数决定了浮点数表示的范围，有效位数是决定了浮点数表示的精度。
+所以，浮点数可以表示很大的数。但是数越大它能表示的位置它就越稀疏。比如在接近最大值的时候，它其实可能不是每个整数都能表示了，所以一般我们也不会这么用。浮点数它会有一个最大的整数表示范围。几乎很少会越整数表示范围最大的界。浮点数还有一个可以表示的符号。可以表示正负。最终 IEEE 754 双精度浮点数表示是1个符号位加上11个指数位，再加上52个精度位表示的。每一个位都是一个bit，它可以是0或者1。
+
+下面的图里画了一个64位双精度浮点数的比特位的一个分布图。
+
+![NOTE_Number-7-3](./images/NOTE_Number-7-3.jpg)
+
+第一位蓝色的表示它的符号。如果是0就表示正，是1就表示是负的，不参与任何数字表示。黄色部分是指数位，是一个二进制表示的。最后空白部分就是它的精度位。最后我们得到的float，他就是一个精度位乘以指数位乘以2的指数次方这样的一个表示。
+指数其实有一个偏移，因为他这11位不光是为了表示说正的，它还有表示负的的范围。所以它会从1个1后边10个0，这里开始比这大的表示正的，比这个小的表示负的。所以说指数位有一个基准值，要减掉基准值才是真实的2的这么多次方。
+所以大家可以算一下它的最大的表示数就是10个1。2的2048次方减1，这个是2的乘方。然后它再乘以一个52个1，就是浮点数表示的最大值。那么它能表示的最小的正数那就是负的。因为基准值是1后边10个0，所以说是2的10次方，它就表示这个2的10次方这么多负的倍数。
+52其实它还有一个隐藏位。在空白格第一位之前它一定有一个1。因为精度一定是以1开头的。由于没必要把这个1表示出来，所以最后有一个隐藏位。这样的话它的最小值就是一个1，后面52倍。然后它再乘以一个2的负10次方次方，这个数就是它能表示的最小的数。在Number上面这些都会作为常量最后给到大家。
+
+#### 4. 实验-Double
+
+在知道了浮点数的一个结构后，实际编写了一个程序来演示Number是怎么表示的
+
+![NOTE_Number-7-4](./images/NOTE_Number-7-4.jpg)
+
+```Javascript
+1 === 1.0
+// true
+
+0.1 + 0.2 === 0.3  
+// false
+```
+
+精度损失从把十进制的表示转换成二进制就开始了。每次转换最多损失来一个e，然后再做加法、比较等一样它可能有一个e的精度损失。所以 0.1+0.2 不等于 0.3 主要因为三次转换加上一次运算的精度损失造成的。它的精度损失最大有可能是 3e
+
+#### 5. Number—Grammar
+
+Number 的语法在2018标准里主要是分成 十进制、二进制、八进制、十六进制 4个部分。
+
+- DecimalLiteral 十进制表示
+  - 0
+  - 0\.
+  - .2
+  - 1e3
+
+十进制表示允许有小数，比如0、0. 只要十进制的语法特别奇特。只要小数点前或者小数点后一面有数字就行。所以0.和.2都是合法的小数点写法。另外它还支持科学技术法。这里的1表示有效数字，3表示指数，所以1e3表示1000  
+
+- BinaryIntegerLiteral 二进制表示
+  - 0b111
+
+二进制只支持整数。是以0b开头的这样一个数。0b开头的后面只能写0或者1不能有空格。
+
+- OctalIntegerLiteral 八进制表示
+  - 0o10
+
+八进制以0o开头。后面只能有0～7。
+
+- HexIntegerLiteral 十六进制表示
+  - 0xFF
+
+十六进制以0x开头。可以写0～9的数字，从10开始是用A到F来表示10到16的值。
+
+``` javascript
+0.toString();
+0 .toString();
+```
+
+如果要写`0.toString()` 由于0.是一个合法的十进制语法，所以0.会被当成一个0，要写成`0 .toString()` ，否则就会报错。加上空格以后 `.toString()` 的 `.` 才会被理解为取属性的运算符。
+
+#### 6. Number—Practice
+
+- Safe Integer
+- Float Compare
+
+``` javascript
+Number.MAX_SAFE_INTEGER.toString(16)
+"1fffffffffffff"
+```
+
+``` javascript
+Math.abs(0.1 + 0.2 - 0.3) <= Number.EPSILON
+```
+
+### 录播 | 八、 JS类型 | String
+
+#### 1. String
+
+- Character
+- Code Point
+- Encoding
+
+- ASCII
+- Unicode
+- UCS
+- GB
+- GB2312
+- GBK(GB13000)
+- GB18030
+- ISO-8859
+- BIG5
+
+#### 2. String—Encoding
+
+- UTF
+
+#### 3. String—Homework
+
+``` javascript
+function UTF8_Encoding(string){
+//return new Buffer();
+}
+```
+
+#### 4. String—Grammar
+
+- "abc"
+- 'abc’
+- \`abc`
+
+#### 5. String—Grammar Chanllenge
+
+A regular Expression to match string literal.
+
+#### 6. String—Grammar Answer
+
+"(?:[^"\n\\\r\u2028\u2029]|\\(?:['"\\bfnrtv\n\r\u2028\u2029]|\r\n)|\\x[0-9a-fA-F]{2}|\\u[0-9afA-F]{4}|\\[^0-9ux'"\\bfnrtv\n\\\r\u2028\u2029])*"
+
+'(?:[^'\n\\\r\u2028\u2029]|\\(?:['"\\bfnrtv\n\r\u2028\u2029]|\r\n)|\\x[0-9a-fA-F]{2}|\\u[0-9afA-F]{4}|\\[^0-9ux'"\\bfnrtv\n\\\r\u2028\u2029])*'
+
+#### 7. String—Grammar—Template
+
+\`ab${x}abc${y}abc`
+
+- `ab${
+- }abc${
+- }abc`
+
+### 录播 | 九、 JS类型 | 其他类型
+
+#### 1. 其他类型
+
+### 录播 | 十、 JS对象 | 对象的基础知识
+
+#### 1. 对象的基础知识
+
+### 录播 | 十一、 JS对象 | JS中的对象
+
+#### 1. JS中的对象
 
 ## 本周作业
 
