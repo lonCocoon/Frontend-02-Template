@@ -1,7 +1,7 @@
 <!--
  * @Author: cocoon
  * @Date: 2020-10-01 13:28:01
- * @LastEditTime: 2020-10-06 17:09:31
+ * @LastEditTime: 2020-10-06 18:03:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Frontend-02-Template/week02/NOTE.md
@@ -362,6 +362,8 @@ Number、String、Boolean、Object、Null
 - Exponent（11）
 - Fraction（52）
 
+<!-- ToDo  -->
+
 准确来说JavaScript里的Number对应到我们概念里面的有限位数的一个小数。再次也是对应到一个有理数。Number不会用来表示无理数，有理数其实它也表示不了。它的位数有限，不过也足够多。
 Number按照它的定义，它叫 Double Float，双精度浮点类型。
 要理解IEEE 754 定义里的Float的标准才能真正理解JavaScript里的Number。Float表示为浮点数，它的小数点是可以来回浮动的。它的基本思想是我们把一个数字拆成它的指数和有效位数。数的指数决定了浮点数表示的范围，有效位数是决定了浮点数表示的精度。
@@ -425,6 +427,7 @@ Number 的语法在2018标准里主要是分成 十进制、二进制、八进�
 
 #### 6. Number—Practice
 
+<!-- ToDo -->
 - Safe Integer
 - Float Compare
 
@@ -554,13 +557,13 @@ function f(){
 
 #### 1. Object
 
-![](./ToDo.jpg)
+<!-- ToDo ![](./ToDo.jpg)  -->
 三只一模一样的鱼，其实是三个对象。
 
-![](./ToDo.jpg)
+<!-- ToDo ![](./ToDo.jpg)  -->
 其中一只鱼发生了状态改变，失去了尾巴。其它两只鱼并不受到影响。因此，当我们在计算机中描述这三只鱼时，必须把相同的数据存储三份。
 
-![](./ToDo.jpg)
+<!-- ToDo ![](./ToDo.jpg)  -->
 所以任何一个对象都是唯一的，这与它本身的状态无关。所以，即使状态完全一致的两个对象，也并
 不相等。我们用状态来描述对象。我们状态的改变即是行为。
 
@@ -601,16 +604,16 @@ class Human {
 
 #### 1. Object in JavaScript
 
-![](./ToDo.jpg)
+<!-- ToDo ![](./ToDo.jpg)  -->
 在JavaScript运行时，原生对象的描述方式非常简单，我们只需要关心原型和属性两个部分。
 
-![](./ToDo.jpg)
+<!-- ToDo ![](./ToDo.jpg)  -->
 
-![](./ToDo.jpg)
+<!-- ToDo ![](./ToDo.jpg)  -->
 JavaScript用属性来统一抽象对象状态和行为。一般来说，数据属性用于描述状态，访问器属性则用于描述
 行为。数据属性中如果存储函数，也可以用于描述行为。
 
-![](./ToDo.jpg)
+<!-- ToDo ![](./ToDo.jpg)  -->
 当我们访问属性时，如果当前对象没有，则会沿着原型找原型对象是否有此名称的属性，而原型对象还可能有原型，因此，会有“原型链”这一说法。Object这一算法保证了，每个对象只需要描述自己和原型的区别即可。
 
 #### 2. Object API/Grammar
@@ -630,7 +633,7 @@ JavaScript用属性来统一抽象对象状态和行为。一般来说，数据�
 
 #### 4. Special Object
 
-![](./ToDo.jpg)
+<!-- ToDo ![](./ToDo.jpg)  -->
 
 #### 5. Host Object
 
