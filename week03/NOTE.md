@@ -160,31 +160,188 @@ ___Example___
 
 ### 录播 | 二、 JS表达式 | 类型转换
 
-#### 3.Statement
-
 #### 4.Structure
 
 #### 5.Program/Module
 
-#### 
-
 ### 录播 | 三、 JS 语 句 | 运行时相关概念
 
-### 
+#### 1. Statement
+
+- Grammar
+  - 简单语句
+  - 组合语句
+  - 声明
+- Runtime
+  - Completion Record
+  - Lexical Environment
+
+#### 2. Completion Record
+
+``` JavaScript
+if(x == 1)
+  return 10;
+```
+
+我们需要一个数据结构来描述语句的执行结果：是否返回了？返回值是啥？等等......
 
 ### 录播 | 四、 JS 语 句 | 简单语句和复合语句
 
-### 
+#### 1. 简单语句
+
+- ExpressionStatement
+- EmptyStatement
+- DebuggerStatement
+- ThrowStatement
+- ContinueStatement
+- BreakStatement
+- ReturnStatement
+
+#### 2. 复合语句
+
+- BlockStatement
+- IfStatement
+- SwitchStatement
+- IterationStatement
+- WithStatement
+- LabelledStatement
+- TryStatement
+
+#### 3. block
+
+``` JavaScript
+{
+  ░░░░
+  ░░░░
+  ░░░░
+}
+```
+
+- [[type]]: normal
+- [[value]]: --
+- [[target]]: --
+
+#### 4. Iteration
+
+- while( ▒▒ ) ░░░░
+- do ░░░░ while( ▒▒ );
+- for( ▓▓ ; ▒▒ ; ▒▒) ░░░░
+- for( ▓▓ in ▒▒ ) ░░░░
+- for( ▓▓ of ▒▒ ) ░░░░
+- ~~for await( of )~~
+
+<!-- DoTo -->
+- var
+- const / let
+- in
+
+#### 5. 标签、循环、break、continue
+
+- LabelledStatement
+- IterationStatement
+- ContinueStatement
+- BreakStatement
+- SwitchStatement
+
+<!-- DoTo -->
+- [[type]]: break continue
+- [[value]]: --
+- [[target]]: label
+
+#### 6. try
+
+``` JavaScript
+try {
+  ░░░░░░░░
+} catch( ▓▓▓ ) {
+  ░░░░░░░░
+} finally {
+  ░░░░░░░░
+}
+```
+
+- [[type]]: return
+- [[value]]: --
+- [[target]]: label
 
 ### 录播 | 五、 JS 语 句 | 声明
 
-### 
+#### 1. 声明
+
+- FunctionDeclaration
+- GeneratorDeclaration
+- AsyncFunctionDeclaration
+- AsyncGeneratorDeclaration
+- VariableStatement
+- ClassDeclaration
+- LexicalDeclaration
+
+- function
+- function *
+- async function
+- async function *
+- var
+
+<!-- DoTo -->
+- class
+- const
+- let
+
+#### 2. 预处理（pre-process）
+
+``` JavaScript
+var a = 2;
+void function (){
+  a = 1;
+  return;
+  var a;
+}();
+console.log(a);
+```
+
+``` JavaScript
+var a = 2;
+void function (){
+  a = 1;
+  return;
+  const a;
+}();
+console.log(a);
+```
+
+#### 3. 作用域
+
+``` JavaScript
+var a = 2;
+void function (){
+  a = 1;
+  {
+  var a;
+  }
+}();
+console.log(a);
+```
+
+``` JavaScript
+var a = 2;
+void function (){
+  a = 1;
+  {
+  const a;
+  }
+}();
+console.log(a);
+```
 
 ### 录播 | 六、 JS结构化 | 宏任务和微任务
 
-### 
+#### 1. 作用域1
+
+
 
 ### 录播 | 七、 JS结构化 | JS函数调用
+
+#### 1. 作用域2
 
 ## 本周作业
 
